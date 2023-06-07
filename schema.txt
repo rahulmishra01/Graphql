@@ -1,0 +1,98 @@
+---------------------------------== Get All User ==------------------------------------------
+query getAllUser {
+  users {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+---------------------------------== Get All Quotes ==------------------------------------------
+query getAllQuots {
+  quote {
+    name
+    by {
+      _id
+      firstName
+    }
+  }
+}
+
+---------------------------------== Find user by _id ==------------------------------------------
+query findUserbyId($userId: ID!) {
+  user(_id: $userId) {
+    firstName
+    lastName
+    email
+  }
+}
+
+---------------------------------== Get Quote By User ==------------------------------------------
+query getQuoteByUser {
+  quotes(by: "646c7ff766b7c6c766c32d3a") {
+    name
+  }
+}
+
+---------------------------------== Get Profile User ==------------------------------------------
+query getProfileUser {
+  myProfile {
+    _id
+    firstName
+    lastName
+    email
+    quotes {
+      name
+    }
+  }
+}
+
+---------------------------------== Register User ==------------------------------------------
+mutation register($newUser: userInput!) {
+  user: register(newUser: $newUser) {
+    firstName
+    lastName
+    email
+    password
+  }
+}
+
+---------------------------------== Login User ==------------------------------------------
+mutation login($loginUser: loginUser!) {
+  user: login(loginUser: $loginUser) {
+  token
+  }
+}
+
+---------------------------------== Create Quote ==------------------------------------------
+mutation createQuote($name: String!) {
+    createQuote(name: $name)
+}
+
+-------------------------------== Update User Details ==---------------------------------------
+mutation updateUserDetails($data: updateData!) {
+  updateUser(data: $data) {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+-------------------------------== Delete User With Quote ==---------------------------------------
+mutation deleteUserWithQupte($_id: ID!) {
+  deleteUser(_id: $_id)
+}
+
+-------------------------------== Update User Quote ==---------------------------------------
+mutation updateQuote($update:updateQuote!){
+	updateQuote(update:$update){
+    name
+}
+}
+
+-------------------------------== Delete User Quote ==---------------------------------------
+mutation deleteQuote($_id: ID!) {
+  deleteQuoteOnly(_id: $_id)
+}

@@ -1,0 +1,16 @@
+.my-container{
+  max-width: 400px !important;
+}
+
+input:focus {
+  border-bottom: 2px solid #673ab7 !important;
+  box-shadow:none !important;
+}
+.font {
+  font-size: 2rem;
+  font-family: serif;
+}
+.text{
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
